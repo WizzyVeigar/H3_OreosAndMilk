@@ -28,6 +28,9 @@ namespace H3_OreosAndMilk
         {
 
             services.AddControllers();
+            services.AddDistributedMemoryCache();
+            //services.AddMvc();
+            services.AddSession();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "H3_OreosAndMilk", Version = "v1" });
@@ -49,6 +52,8 @@ namespace H3_OreosAndMilk
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession(); //This needs to be before app.UseMvc()
 
             app.UseEndpoints(endpoints =>
             {

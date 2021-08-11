@@ -30,7 +30,6 @@ namespace H3_OreosAndMilk.Controllers
             {
                 Expires = DateTime.Now.AddDays(-1)
             };
-
             Response.Cookies.Append("burger", "", co);
 
             return Ok("Cookie removed");
